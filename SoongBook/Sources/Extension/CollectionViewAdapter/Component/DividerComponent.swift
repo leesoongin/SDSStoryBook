@@ -7,11 +7,11 @@
 
 import Foundation
 
-import UIKit
-import CoreCommonKit
-import Combine
-import SnapKit
-import Then
+//import UIKit
+//import CoreCommonKit
+//import Combine
+//import SnapKit
+//import Then
 
 //public struct DividerComponent: Component {
 //    public var identifier: String

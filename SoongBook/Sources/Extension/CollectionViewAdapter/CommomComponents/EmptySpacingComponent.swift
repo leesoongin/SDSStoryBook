@@ -8,7 +8,7 @@ import UIKit
 import Combine
 import SnapKit
 import Then
-import CoreCommonKit
+//import CoreCommonKit
 //
 //public struct EmptySpacingComponent: Component {
 //    public var identifier: String

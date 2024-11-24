@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import CoreCommonKit
+//import CoreCommonKit
 import Combine
 import SnapKit
 import Then

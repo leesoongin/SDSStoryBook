@@ -13,9 +13,9 @@ public struct SectionModel: SectionModelType {
     public let identifier: String
     public let header: ItemModelType?
     public let footer: ItemModelType?
-
+    
     public let itemModels: [ItemModelType]
-
+    
     public init(identifier: String,
                 collectionLayout: CompositionalLayoutModelType? = nil,
                 header: ItemModelType? = nil,
@@ -27,6 +27,6 @@ public struct SectionModel: SectionModelType {
         self.footer = footer
         self.itemModels = itemModels
     }
-
+    
     public func hash(into hasher: inout Hasher) { }
 }

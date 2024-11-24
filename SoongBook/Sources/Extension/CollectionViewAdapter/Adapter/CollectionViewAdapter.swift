@@ -65,21 +65,31 @@ public final class CollectionViewAdapter: NSObject {
         self.collectionView = collectionView
         self.collectionView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.collectionView?.delegate = self
-//        toggleScrollDirection()
         
         setupCollectionDataSource()
         bindInputSections()
         bindDelegateEvent()
     }
     
+    public func pinToVisibleBoundsSectionHeader() {
+        if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionHeadersPinToVisibleBounds = true
+            layout.sectionInsetReference = .fromSafeArea
+        }
+    }
+    
+    public func pinToVisibleBoundsSectionFooter() {
+        if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionFootersPinToVisibleBounds = true
+            layout.sectionInsetReference = .fromSafeArea
+        }
+    }
+    
     // 스크롤 방향을 변경하는 메서드
-    func toggleScrollDirection() {
+    public func toggleScrollDirection() {
         if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             // 현재 방향에 따라 새로운 방향 설정
             flowLayout.scrollDirection = .horizontal
-            
-            // layout 업데이트
-            collectionView?.collectionViewLayout.invalidateLayout()
         }
     }
 }
@@ -288,6 +298,22 @@ extension CollectionViewAdapter: UICollectionViewDelegateFlowLayout {
         registerCellIfNeeded(with: itemModel)
         
         return getCachedSize(section: sectionModel, item: itemModel)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               layout collectionViewLayout: UICollectionViewLayout,
+                               referenceSizeForHeaderInSection section: Int) -> CGSize {
+        guard let section = sections[safe: section], let header = section.header else { return .zero }
+
+        return getCachedSize(section: section, item: header)
+    }
+
+    public func collectionView(_ collectionView: UICollectionView,
+                               layout collectionViewLayout: UICollectionViewLayout,
+                               referenceSizeForFooterInSection section: Int) -> CGSize {
+        guard let section = sections[safe: section], let footer = section.footer else { return .zero }
+
+        return getCachedSize(section: section, item: footer)
     }
     
     public func collectionView(_ collectionView: UICollectionView,
