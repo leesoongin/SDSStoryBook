@@ -16,10 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        let mainViewController = MainViewController()
-//        mainViewController.view.backgroundColor = .systemCyan
         
-        window?.rootViewController = mainViewController
+        let sdsShowcaseMenuVC = SDSShowcaseViewController()
+        let rootVC = UINavigationController(rootViewController: sdsShowcaseMenuVC)
+        
+        window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }
 }
