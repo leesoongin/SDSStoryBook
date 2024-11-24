@@ -91,6 +91,7 @@ struct VioletTheme: ButtonTheme {
     func borderColor(variant: CommonButton.Variant, style: CommonButton.Style, state: CommonButton.State) -> CGColor {
         switch (variant, style, state) {
         case (_, .filled, _): return UIColor.clear.cgColor
+        case (_, .goast, _): return UIColor.clear.cgColor
         case (.primary, _, .enabled): return SDSColorToken.Background.violetPrimary.color.cgColor
         case (.primary, _, .pressed): return SDSColorToken.Background.violetPressedPrimary.color.cgColor
         case (.primary, _, .disabled): return SDSColorToken.Background.violetDisabledPrimary.color.cgColor

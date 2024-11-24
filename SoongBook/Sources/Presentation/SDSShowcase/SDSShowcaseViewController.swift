@@ -33,6 +33,11 @@ extension SDSShowcaseViewController {
         static let atomLabel = "atom_sds_label"
         static let atomButton = "atom_sds_button"
         static let atomTextField = "atom_sds_textField"
+        
+        static let componentSearchBar = "component_searchBar"
+        static let componentToast = "component_toast"
+        
+        static let componentPlayground = "component_playground"
     }
 }
 
@@ -69,6 +74,24 @@ final class SDSShowcaseViewController: ViewController<SDSShowcaseView> {
         ),
     ]
     
+    let componentComponents: [SDSShowcaseMenuComponent] = [
+        SDSShowcaseMenuComponent(
+            identifier: ComponentIdentifier.componentSearchBar,
+            title: "SearchBar ( SDSButton + SDSTextField )"
+        ),
+        SDSShowcaseMenuComponent(
+            identifier: ComponentIdentifier.componentToast,
+            title: "Toast ( SDSButton + SDSLabel )"
+        )
+    ]
+    
+    let playgroundComponents: [SDSShowcaseMenuComponent] = [
+        SDSShowcaseMenuComponent(
+            identifier: ComponentIdentifier.componentPlayground,
+            title: "Component Playground"
+        )
+    ]
+    
     var sections: [SectionModelType] {
         let foundationHeaderComponent = SDSShowcaseHeaderComponent(identifier: "foundation_header", title: "Foundation")
         let foundationSections = SectionModel(
@@ -83,8 +106,28 @@ final class SDSShowcaseViewController: ViewController<SDSShowcaseView> {
             header: atomHeaderComponent,
             itemModels: atomComponents
         )
+        let componentHeaderComponent = SDSShowcaseHeaderComponent(
+            identifier: "component_header",
+            title: "Component"
+        )
+        let componentSections = SectionModel(
+            identifier: "component_section",
+            header: componentHeaderComponent,
+            itemModels: componentComponents
+        )
         
-        return [foundationSections] + [atomSections]
+        let playgroundHeaderComponent = SDSShowcaseHeaderComponent(
+            identifier: "component_playground_header",
+            title: "Playground"
+        )
+        
+        let playgroundSections = SectionModel(
+            identifier: "component_playground_section",
+            header: playgroundHeaderComponent,
+            itemModels: playgroundComponents
+        )
+        
+        return [foundationSections] + [atomSections] + [componentSections] + [playgroundSections]
     }
     
     private lazy var adapter = CollectionViewAdapter(with: contentView.collectionView)
@@ -178,6 +221,18 @@ final class SDSShowcaseViewController: ViewController<SDSShowcaseView> {
             let textFieldVC = SDSTextFieldViewController()
             
             navigationController?.pushViewController(textFieldVC, animated: true)
+        case ComponentIdentifier.componentSearchBar:
+            let searchbarComponentVC = SDSSearchBarViewController()
+            
+            navigationController?.pushViewController(searchbarComponentVC, animated: true)
+        case ComponentIdentifier.componentToast:
+            let toastComponentVC = ToastShowcaseViewController()
+            
+            navigationController?.pushViewController(toastComponentVC, animated: true)
+        case ComponentIdentifier.componentPlayground:
+            let componentPlaygroundVC = SDSComponentPlaygroundViewController()
+            
+            navigationController?.pushViewController(componentPlaygroundVC, animated: true)
         default:
             break
         }
