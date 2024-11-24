@@ -1,5 +1,5 @@
 //
-//  SDSColorToken+Background.swift
+//  SDSColorToken+Border.swift
 //  SoongBook
 //
 //  Created by 이숭인 on 11/5/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension SDSColorToken.Background {
+public extension SDSColorToken.Border {
     var color: UIColor {
         switch self {
         case .bright: return .white000

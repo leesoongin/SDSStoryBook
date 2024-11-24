@@ -35,11 +35,11 @@ extension UILabel: LineHeightSettable {
     }
     
     func applyTypography(with typography: Typography) {
-        font = typography.typographyStyle.font
+        font = typography.font
         textAlignment = typography.alignment
         textColor = typography.colorStyle.color
         
         self.typography = typography
-        applyLineHeight(with: typography, fontLineHeight: typography.typographyStyle.lineHeight)
+        applyLineHeight(with: typography, fontLineHeight: typography.lineHeight)
     }
 }

@@ -1,22 +1,20 @@
 //
-//  SDSColorToken+Background.swift
+//  SDSColorToken+Tint.swift
 //  SoongBook
 //
-//  Created by 이숭인 on 11/5/24.
+//  Created by 이숭인 on 11/23/24.
 //
 
 import UIKit
 
-public extension SDSColorToken.Background {
+extension SDSColorToken.Tint {
     var color: UIColor {
         switch self {
         case .bright: return .white000
-        case .grayPrimary: return .gray400
-        case .grayPressedPrimary: return .gray600
-        case .grayDisabledPrimary: return .gray050
-        case .graySecondary: return .gray600
-        case .grayPressedSecondary: return .gray700
-        case .grayDisabledSecondary: return .gray050
+        case .grayPrimary, .grayPressedPrimary: return .gray900
+        case .grayDisabledPrimary: return .gray300
+        case .graySecondary, .grayPressedSecondary: return .gray700
+        case .grayDisabledSecondary: return .gray300
         case .grayTinted: return .gray050
         case .greenPrimary: return .green400
         case .greenPressedPrimary: return .green600

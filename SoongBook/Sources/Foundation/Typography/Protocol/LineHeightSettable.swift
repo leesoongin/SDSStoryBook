@@ -96,8 +96,8 @@ extension LineHeightSettable {
         attributedText.enumerateAttributes(in: NSRange(location: 0, length: attributedText.length)) { attributes, range, _ in
             if let style = attributes[NSAttributedString.Key.paragraphStyle] as? NSMutableParagraphStyle {
                 if style.minimumLineHeight == .zero, style.maximumLineHeight == .zero {
-                    style.minimumLineHeight = typography.typographyStyle.lineHeight
-                    style.maximumLineHeight = typography.typographyStyle.lineHeight
+                    style.minimumLineHeight = typography.lineHeight
+                    style.maximumLineHeight = typography.lineHeight
                 }
                 mutableAttributedText.addAttribute(.paragraphStyle, value: style, range: range)
             }
