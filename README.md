@@ -12,6 +12,8 @@
 에 대해 간략히 설명합니다. 
 
 ```mermaid
+%%{init: {'themeVariables': { 'textColor': 'black'}}}%%
+
 flowchart TB
     %% Design System Overview
     subgraph Design_System_StoryBook
@@ -66,8 +68,10 @@ flowchart TB
     A --> Playground
 
     %% Styles
-    classDef main fill:#FFFFFF,stroke:#5A3D99,stroke-width:2px,color:#000;  %% Light purple background
-    classDef sub fill:#FFFFFF,stroke:#5A3D99,stroke-width:1px,color:#000;  %% Very light purple background
+    classDef main fill:#DFFFD6,stroke:#333,stroke-width:2px,color:black;  %% Light green background, black text
+    classDef sub fill:#E9E1F7,stroke:#333,stroke-width:2px,color:black;  %% Very light purple background, black text
+
+
 ```
 
 ---
