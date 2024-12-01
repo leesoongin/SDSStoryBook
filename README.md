@@ -11,6 +11,65 @@
 
 에 대해 간략히 설명합니다. 
 
+```mermaid
+flowchart TB
+    %% Design System Overview
+    subgraph Design_System_StoryBook
+        direction TB
+        A[Design System]:::main
+
+        subgraph Foundation
+            direction TB
+            B[Color]:::sub
+            C[Typography]:::sub
+            D[ImageSource]:::sub
+        end
+        
+        subgraph Atom
+            direction TB
+            E[Label]:::sub
+            F[Button]:::sub
+            G[TextField]:::sub
+            E --> B
+            E --> C
+            E --> D
+            F --> B
+            F --> C
+            F --> D
+            G --> B
+            G --> C
+            G --> D
+        end
+
+        subgraph Component
+            direction TB
+            H[SearchBar]:::sub
+            I[Toast]:::sub
+            H --> E
+            H --> F
+            I --> E
+            I --> F
+        end
+
+        subgraph Playground
+            direction TB
+            J[Customizable Components]:::sub
+            J --> H
+            J --> I
+        end
+    end
+
+    %% Connections
+    A --> Foundation
+    A --> Atom
+    A --> Component
+    A --> Playground
+
+    %% Styles
+    classDef main fill:#FFFFFF,stroke:#5A3D99,stroke-width:2px,color:#000;  %% Light purple background
+    classDef sub fill:#FFFFFF,stroke:#5A3D99,stroke-width:1px,color:#000;  %% Very light purple background
+```
+
 ---
 
 ## 목차
